@@ -25,6 +25,8 @@ The unified Inbox and Notifications screens are at `/dashboard/inbox` and `/dash
 
 The messaging provider contract lives in `lib/social/messaging.ts`. Instagram, Facebook, and TikTok adapters currently report unavailable capabilities rather than fabricating messages. Connect each official API through a server-side OAuth/webhook flow before writing rows to Supabase. Verify webhook signatures, validate payloads, rate-limit sends, and keep access tokens out of browser code. Platform permissions are not equivalent: enable only the conversations, replies, comments, mentions, or notification features approved for each app and account.
 
+The Social Accounts buttons call `/api/social/connect`. They now report the exact provider configuration state instead of being inactive controls. Add `INSTAGRAM_CLIENT_ID`/`INSTAGRAM_CLIENT_SECRET`, `FACEBOOK_CLIENT_ID`/`FACEBOOK_CLIENT_SECRET`, and `TIKTOK_CLIENT_ID`/`TIKTOK_CLIENT_SECRET` as server-only variables after registering official developer apps. The route intentionally stops before authorization until each platform's redirect URI, state/PKCE handling, scopes, token encryption, and callback exchange are implemented and tested.
+
 ## Checks
 
 `npm run lint` checks the source. `npm run build` checks the production bundle. Supabase Auth, RLS, storage uploads, and OAuth flows require a configured Supabase project and should be exercised in a staging project before launch.
