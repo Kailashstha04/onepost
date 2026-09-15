@@ -1,0 +1,4 @@
+export type SocialPlatform = "instagram" | "facebook" | "tiktok";
+export type SocialAccount = { id: string; platform: SocialPlatform; username: string | null };
+export type PublishInput = { caption: string; mediaPath: string; mediaType: "image" | "video" };
+export interface SocialProvider { connect(): Promise<string>; disconnect(accountId: string): Promise<void>; publishPost(account: SocialAccount, input: PublishInput): Promise<{ platformPostId: string }>; publishVideo(account: SocialAccount, input: PublishInput): Promise<{ platformPostId: string }>; getAccountInfo(accountId: string): Promise<SocialAccount>; }

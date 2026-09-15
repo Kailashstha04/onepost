@@ -1,0 +1,2 @@
+import { InboxView } from "@/components/dashboard/inbox";
+export default function InboxPage() { return <main className="min-h-screen bg-[#f7f8f3] px-5 py-8 text-[#14211f] lg:px-10"><div className="mx-auto max-w-6xl"><a href="/dashboard" className="text-sm text-[#6f8e28]">← Back to dashboard</a><InboxView /></div></main>; }

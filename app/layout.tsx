@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import "./globals.css";
+export const metadata: Metadata = { title: { default: "OnePost — Create once. Publish everywhere.", template: "%s | OnePost" }, description: "OnePost is a thoughtful social media scheduler and management workspace for publishing to multiple social media platforms.", keywords: ["social media scheduler", "social media management", "Instagram Facebook TikTok scheduler"], openGraph: { title: "OnePost — Create once. Publish everywhere.", description: "A calmer way to manage and publish your social content.", type: "website" }, twitter: { card: "summary_large_image", title: "OnePost — Create once. Publish everywhere.", description: "A calmer way to manage and publish your social content." } };
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en"><body>{children}</body></html>; }

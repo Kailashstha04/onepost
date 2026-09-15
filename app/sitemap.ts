@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap { return [{ url: "https://onepost.app", lastModified: new Date() }, { url: "https://onepost.app/auth/login" }, { url: "https://onepost.app/auth/signup" }]; }

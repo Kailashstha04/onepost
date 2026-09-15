@@ -1,0 +1,5 @@
+import type { SocialAccount, SocialProvider, PublishInput } from "./types";
+function unavailable(platform: string): never { throw new Error(`${platform} publishing requires official OAuth credentials and API configuration. See README.md.`); }
+export class InstagramProvider implements SocialProvider { connect() { return Promise.reject(unavailable("Instagram")); } disconnect(accountId: string) { void accountId; return Promise.reject(unavailable("Instagram")); } publishPost(account: SocialAccount, input: PublishInput) { void account; void input; return Promise.reject(unavailable("Instagram")); } publishVideo(account: SocialAccount, input: PublishInput) { void account; void input; return Promise.reject(unavailable("Instagram")); } getAccountInfo(accountId: string) { void accountId; return Promise.reject(unavailable("Instagram")); } }
+export class FacebookProvider extends InstagramProvider {}
+export class TikTokProvider extends InstagramProvider {}
